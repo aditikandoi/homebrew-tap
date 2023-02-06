@@ -50,7 +50,8 @@ class GitHubPrivateRepositoryReleaseDownloadStrategy < GitHubPrivateRepositoryDo
     super
   end
   def parse_url_pattern
-    url_pattern = %r{https://github.com/([^/]+)/([^/]+)/releases/download/([^/]+)/(\S+)}
+#     url_pattern = %r{https://github.com/([^/]+)/([^/]+)/releases/download/([^/]+)/(\S+)}
+    url_pattern = [^/]+
     unless @url =~ url_pattern
       raise CurlDownloadStrategyError, "Invalid url pattern for GitHub Release."
     end
