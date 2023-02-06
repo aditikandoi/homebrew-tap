@@ -14,7 +14,7 @@ class GitHubPrivateRepositoryDownloadStrategy < CurlDownloadStrategy
     _, @owner, @repo, @filepath = *match
   end
   def download_url
-    "https://#{@github_token}@github.com/aditikandoi}/#{@repo}/#{@filepath}"
+    "https://#{@github_token}@github.com/#@{@owner}/#{@repo}/#{@filepath}"
   end
   private
   def _fetch(url:, resolved_url:, timeout:)
