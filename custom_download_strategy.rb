@@ -49,14 +49,13 @@ class GitHubPrivateRepositoryReleaseDownloadStrategy < GitHubPrivateRepositoryDo
   def initialize(url, name, version, **meta)
     super
   end
-  def parse_url_pattern
+#   def parse_url_pattern
 #     url_pattern = %r{https://github.com/([^/]+)/([^/]+)/releases/download/([^/]+)/(\S+)}
-    url_pattern = [^/]
-    unless @url =~ url_pattern
-      raise CurlDownloadStrategyError, "Invalid url pattern for GitHub Release."
-    end
-    _, @owner, @repo, @tag, @filename = *@url.match(url_pattern)
-  end
+#     unless @url =~ url_pattern
+#       raise CurlDownloadStrategyError, "Invalid url pattern for GitHub Release."
+#     end
+#     _, @owner, @repo, @tag, @filename = *@url.match(url_pattern)
+#   end
   def download_url
     "https://#{@github_token}@api.github.com/repos/#{@owner}/#{@repo}/releases/assets/#{asset_id}"
   end
